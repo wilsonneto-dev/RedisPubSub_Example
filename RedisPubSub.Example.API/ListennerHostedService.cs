@@ -13,7 +13,7 @@ public class ListennerHostedService : IHostedService, IDisposable
 
     public Task StartAsync(CancellationToken stoppingToken)
     {
-        _logger.LogInformation("Timed Hosted Service running.");
+        _logger.LogInformation("Hosted Service running.");
         _bus.Subscribe("*", (channel, message) => {
             _logger.LogInformation($"[{channel}]: {message}");
         });
@@ -22,7 +22,7 @@ public class ListennerHostedService : IHostedService, IDisposable
 
     public Task StopAsync(CancellationToken stoppingToken)
     {
-        _logger.LogInformation("Timed Hosted Service stop.");
+        _logger.LogInformation("Hosted Service stop.");
         return Task.CompletedTask;
     }
 
